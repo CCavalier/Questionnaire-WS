@@ -54,16 +54,15 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
-		<!-- POI -->
+		<!-- POI not yet in use -->
+		<!-- <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
+			<version>3.12</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml</artifactId> <version>3.12</version> </dependency> -->
+		<!-- CSV Reader -->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>3.12</version>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.4</version>
 		</dependency>
 		<!-- Tests -->
 		<dependency>
@@ -83,11 +82,11 @@
 			<version>1.10.19</version>
 		</dependency>
 		<dependency>
-		<groupId>info.cukes</groupId>
-		<artifactId>cucumber-junit</artifactId>
-		<version>${cucumber.version}</version>
-		<scope>test</scope>
-	</dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 

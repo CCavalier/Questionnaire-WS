@@ -1,6 +1,6 @@
 package com.cavalier.questionnaire.back.model;
 
-import java.util.Map;
+import java.util.List;
 
 /**
  * Data model for question
@@ -16,27 +16,37 @@ public class Question {
 	/**
 	 * set of answers which can be chosen, and their expected values
 	 */
-	private Map<Integer, Answer> answers;
+	private List<Answer> answers;
+	
+	private List<String> solution;
 	
 	
+	public List<String> getSolution() {
+		return solution;
+	}
+	public void setSolution(List<String> solution) {
+		this.solution = solution;
+	}
 	public String getText() {
 		return text;
 	}
 	public void setText(String text) {
 		this.text = text;
 	}
-	public Map<Integer, Answer> getAnswers() {
+
+	
+	public List<Answer> getAnswers() {
 		return answers;
 	}
-	public void setAnswers(Map<Integer, Answer> answers) {
+	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((answers == null) ? 0 : answers.hashCode());
+		result = prime * result + ((solution == null) ? 0 : solution.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
@@ -53,6 +63,11 @@ public class Question {
 			if (other.answers != null)
 				return false;
 		} else if (!answers.equals(other.answers))
+			return false;
+		if (solution == null) {
+			if (other.solution != null)
+				return false;
+		} else if (!solution.equals(other.solution))
 			return false;
 		if (text == null) {
 			if (other.text != null)

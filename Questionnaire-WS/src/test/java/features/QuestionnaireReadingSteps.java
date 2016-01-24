@@ -1,5 +1,6 @@
 package features;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -16,17 +17,17 @@ import cucumber.api.java.en.When;
 
 public class QuestionnaireReadingSteps {
 	
-	@Autowired
-	private ExcelReader excelReader ;
 	
-	private List<Question>  questionsList;
+	private ExcelReader  excelReader = new ExcelReader();;
 	
-	private String fileUrl;
+	private List<Question>  questionsList = new ArrayList<Question>();
+	
+	private String fileUrl ;
 	
 	@Given("^an properly formatted excel file \"([^\"]*)\"$")
 	public void an_properly_formatted_excel_file(String fileUrl) throws Throwable {
 	    QuestionnaireValidator.validateFileFormat(fileUrl);
-	    this.fileUrl = fileUrl;
+	    
 	}
 
 
@@ -34,7 +35,10 @@ public class QuestionnaireReadingSteps {
 	public void the_user_import_the_file() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 //	    throw new PendingException();
-		questionsList = excelReader.parseFile(fileUrl);
+/*		fileUrl = this.getClass().getClassLoader().getResource("Questionnaire.csv").getPath();
+		System.out.println("file : "+fileUrl);*/
+		questionsList = excelReader.parseFile("/home/malika/sources/Questionnaire/Questionnaire-WS/src/test/resources/Questionnaire.csv");
+		Assert.assertNotNull(questionsList);
 	}
 
 	@Then("^the questions are correctly imported$")
