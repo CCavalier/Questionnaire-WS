@@ -1,0 +1,4 @@
+features/QuestionnaireReadingSteps.class
+features/QuestionnaireReadingTest.class
+com/cavalier/questionnaire/back/service/reader/ExcelReaderTest.class
+com/cavalier/questionnaire/back/utils/QuestionnaireValidatorTest.class
