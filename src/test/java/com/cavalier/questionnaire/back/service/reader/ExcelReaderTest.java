@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.cavalier.questionnaire.back.exception.IncorrectFileException;
 import com.cavalier.questionnaire.back.model.Answer;
 import com.cavalier.questionnaire.back.model.Question;
 
@@ -15,7 +16,7 @@ public class ExcelReaderTest {
 	private ExcelReader  excelReader = new ExcelReader();
 	
 	@Test
-	public void parseFileTest() throws IOException{
+	public void parseFileTest() throws IOException, IncorrectFileException {
 	 URL url = this.getClass().getClassLoader().getResource("Questionnaire.csv");
 	 Assert.assertNotNull(url);
 	 List<Question> parsedList = excelReader.parseFile(url.getPath());
@@ -33,7 +34,7 @@ public class ExcelReaderTest {
 	}
 	
 	@Test(expected = IOException.class)
-	public void parseFileTestFail() throws IOException{
+	public void parseFileTestFail() throws IOException, IncorrectFileException {
 		excelReader.parseFile("azzerty");
 	}
 	

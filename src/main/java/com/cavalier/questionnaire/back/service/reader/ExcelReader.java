@@ -5,14 +5,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cavalier.questionnaire.back.exception.IncorrectFileException;
 import com.cavalier.questionnaire.back.model.Answer;
 import com.cavalier.questionnaire.back.model.Question;
+import com.cavalier.questionnaire.back.utils.QuestionnaireValidator;
 import com.opencsv.CSVReader;
 
 public class ExcelReader {
 
-	public List<Question> parseFile(String url) throws IOException {
+	public List<Question> parseFile(String url) throws IOException, IncorrectFileException {
 		List<Question> questions = new ArrayList<Question>();
+		QuestionnaireValidator.validateFileFormat(url);
 		CSVReader reader = new CSVReader(new FileReader(url));
 		boolean firstLine = true;
 		String[] nextLine;

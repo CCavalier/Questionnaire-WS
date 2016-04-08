@@ -53,6 +53,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- POI not yet in use -->
 		<!-- <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
